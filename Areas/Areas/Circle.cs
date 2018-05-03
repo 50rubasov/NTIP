@@ -6,19 +6,28 @@ using System.Threading.Tasks;
 
 namespace Areas
 {
-    public class Circle:IFigure
+    public class Circle : IFigure
     {
-        double R;
-        public Circle(double R)
+        private double _r;
+
+        public Circle(double r)
         {
-            this.R = R;
+            R = r;
+        }
+
+        public double R
+        {
+            get { return _r; }
+            set { _r = value; }
         }
 
         public double Area()
         {
+            if (R < 0)
             {
-                return 2*Math.PI*R;
+                throw new Exception("Радиус должн быть больше нуля");
             }
+            return 2 * Math.PI * R;
         }
     }
 }

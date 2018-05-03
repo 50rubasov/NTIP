@@ -16,38 +16,75 @@ namespace ConsoleLoader
         static void Main(string[] args)
         {
             char key;
-            int AsciiValue = 0;           
+            int AsciiValue = 0;
 
             while (AsciiValue != 27)
             {
-                Console.Clear();
-                Console.WriteLine("1 - Площадь треугольника.");
-                Console.WriteLine("2 - Площадь круга.");
-                Console.WriteLine("3 - Площадь прямоугольника.");
-                Console.WriteLine("Esc - Выход. \n");
+                try
+                {
+                    Console.Clear();
+                    Console.WriteLine("1 - Площадь треугольника.");
+                    Console.WriteLine("2 - Площадь круга.");
+                    Console.WriteLine("3 - Площадь прямоугольника.");
+                    Console.WriteLine("Esc - Выход. \n");
 
-                key = _getch();
-                AsciiValue = key;
+                    key = _getch();
+                    AsciiValue = key;
 
-                switch (AsciiValue)
-                {                 
-                    case '1':
-                        Triangle triangle = new Triangle(3.0, 4.0, 5.0);
-                        Console.Write("Площадь треугольника: " + triangle.Area());
-                        Console.ReadKey();
-                        break;
-                    case '2':
-                        Circle circle = new Circle(2.0);
-                        Console.Write("Площадь круга: " + circle.Area());
-                        Console.ReadKey();
-                        break;
-                    case '3':
-                        Rectangle rectangle = new Rectangle(2.0, 3.0);
-                        Console.Write("Площадь прямоугольника: " + rectangle.Area());
-                        Console.ReadKey();
-                        break;
+                    switch (AsciiValue)
+                    {
+                        case '1':
+                            {
+                                Console.WriteLine("Введите координату A:");
+                                double a = Convert.ToDouble(Console.ReadLine());
+                                Console.WriteLine("Введите координату B:");
+                                double b = Convert.ToDouble(Console.ReadLine());
+                                Console.WriteLine("Введите координату C:");
+                                double c = Convert.ToDouble(Console.ReadLine());
+
+                                IFigure triangle = new Triangle(a, b, c);
+
+                                Console.Write("Площадь треугольника: " + triangle.Area());
+                                Console.ReadKey();
+                                break;
+                            }
+                        case '2':
+                            {
+                                Console.WriteLine("Введите радиус:");
+                                double R = Convert.ToDouble(Console.ReadLine());
+
+                                IFigure circle = new Circle(R);
+                                Console.Write("Площадь круга: " + circle.Area());
+                                Console.ReadKey();
+                                break;
+                            }
+                        case '3':
+                            {
+                                Console.WriteLine("Введите длинну:");
+                                double a = Convert.ToDouble(Console.ReadLine());
+
+                                Console.WriteLine("Введите ширину:");
+                                double b = Convert.ToDouble(Console.ReadLine());
+
+                                Rectangle rectangle = new Rectangle(a, b);
+                                Console.Write("Площадь прямоугольника: " + rectangle.Area());
+                                Console.ReadKey();
+                                break;
+                            }
+                        default:
+                            {
+                                Console.WriteLine("Некорректное значение");
+                                Console.ReadKey();
+                                break;
+                            }
+                    }
+
                 }
-
+                catch (FormatException)
+                {
+                    Console.WriteLine("Несоответсвие типа");
+                    Console.ReadKey();
+                }
             }
         }
     }
