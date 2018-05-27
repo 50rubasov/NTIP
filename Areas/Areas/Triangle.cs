@@ -6,47 +6,69 @@ using System.Threading.Tasks;
 
 namespace Areas
 {
+    /// <summary>
+    /// Плозадь треугольника
+    /// </summary>
     public class Triangle : IFigure
     {
+        /// <summary>
+        /// сторона А
+        /// </summary>
         private double _a;
-        private double _b;
-        private double _c;
-        //конструктор
-
-        public Triangle(double a, double b, double c)
+        /// <summary>
+        /// высота
+        /// </summary>
+        private double _h;
+  
+        /// <summary>
+        /// Конструктор класса
+        /// </summary>
+        /// <param name="a">сторона А</param>
+        /// <param name="h">высота H</param>
+        public Triangle(double a, double h)
         {
             A = a;
-            B = b;
-            C = c;
+            H = h;
         }
-
+        /// <summary>
+        /// Установить или возвратить сторону А
+        /// </summary>
         public double A
         {
-            get { return _a; }
+            get
+            {
+                if (_a < 0)
+                {
+                    throw new Exception("Основание должно быть больше нуля");
+                }
+                else return _a;
+            }
             set { _a = value; }
         }
-
-        public double B
+        /// <summary>
+        /// Установить или возвратить высоту
+        /// </summary>
+        public double H
         {
-            get { return _b; }
-            set { _b = value; }
-
-        }
-
-        public double C
-        {
-            get { return _c; }
-            set { _c = value; }
-        }
-
-        public double Area()
-        {
-            if ((A < 0) || (B < 0) || (C < 0))
+            get
             {
-                throw new Exception("Координаты должны быть больше нуля");
+                if (_h < 0)
+                {
+                    throw new Exception("Высота должна быть больше нуля");
+                }
+                else return _h;
             }
-            double s = (A + B + C) / 2;
-            return Math.Sqrt(s * (s - A) * (s - B) * (s - C));
+
+            set { _h = value; }
+
+        }
+        /// <summary>
+        /// Вычисление площади треугольника
+        /// </summary>
+        /// <returns>площадь</returns>
+        public double Area()
+        {                     
+            return 0.5*A*H;
         }
     }
 }

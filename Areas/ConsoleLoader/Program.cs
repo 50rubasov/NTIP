@@ -10,82 +10,27 @@ namespace ConsoleLoader
 {
     class Program
     {
-        [DllImport("msvcrt")]
-        static extern char _getch();
+        /// <summary>
+        /// Метод для демонстрации бизнес-логики
+        /// </summary>
+        /// <returns></returns>
 
         static void Main(string[] args)
         {
-            char key;
-            int AsciiValue = 0;
+            double a = 2.0, b = 3.0, h = 6.0, R = 5;
+            IFigure triangle = new Triangle(a, h);
 
-            while (AsciiValue != 27)
-            {
-                try
-                {
-                    Console.Clear();
-                    Console.WriteLine("1 - Площадь треугольника.");
-                    Console.WriteLine("2 - Площадь круга.");
-                    Console.WriteLine("3 - Площадь прямоугольника.");
-                    Console.WriteLine("Esc - Выход. \n");
+            Console.WriteLine("Площадь треугольника: " + triangle.Area());
 
-                    key = _getch();
-                    AsciiValue = key;
+            IFigure circle = new Circle(R);
+            Console.WriteLine("Площадь круга: " + circle.Area());
 
-                    switch (AsciiValue)
-                    {
-                        case '1':
-                            {
-                                Console.WriteLine("Введите координату A:");
-                                double a = Convert.ToDouble(Console.ReadLine());
-                                Console.WriteLine("Введите координату B:");
-                                double b = Convert.ToDouble(Console.ReadLine());
-                                Console.WriteLine("Введите координату C:");
-                                double c = Convert.ToDouble(Console.ReadLine());
 
-                                IFigure triangle = new Triangle(a, b, c);
+            Rectangle rectangle = new Rectangle(a, b);
+            Console.WriteLine("Площадь прямоугольника: " + rectangle.Area());
 
-                                Console.Write("Площадь треугольника: " + triangle.Area());
-                                Console.ReadKey();
-                                break;
-                            }
-                        case '2':
-                            {
-                                Console.WriteLine("Введите радиус:");
-                                double R = Convert.ToDouble(Console.ReadLine());
+            Console.ReadKey();
 
-                                IFigure circle = new Circle(R);
-                                Console.Write("Площадь круга: " + circle.Area());
-                                Console.ReadKey();
-                                break;
-                            }
-                        case '3':
-                            {
-                                Console.WriteLine("Введите длинну:");
-                                double a = Convert.ToDouble(Console.ReadLine());
-
-                                Console.WriteLine("Введите ширину:");
-                                double b = Convert.ToDouble(Console.ReadLine());
-
-                                Rectangle rectangle = new Rectangle(a, b);
-                                Console.Write("Площадь прямоугольника: " + rectangle.Area());
-                                Console.ReadKey();
-                                break;
-                            }
-                        default:
-                            {
-                                Console.WriteLine("Некорректное значение");
-                                Console.ReadKey();
-                                break;
-                            }
-                    }
-
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Несоответсвие типа");
-                    Console.ReadKey();
-                }
-            }
         }
     }
 }

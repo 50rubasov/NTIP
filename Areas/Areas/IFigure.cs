@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace Areas
 {
+    /// <summary>
+    /// площадь фигуры
+    /// </summary>
     public interface IFigure
     {
-        //double X { get; set; }
-        //double Y { get; set; }
+        /// <summary>
+        /// Метод позволяет рассчитать площадь фигуры
+        /// </summary>
+        /// <returns> возвращает площадь фигуры </returns>
         double Area();
     }
 }
