@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Areas
 {
+    [Serializable]
     /// <summary>
     /// Площадь круга
     /// </summary>
@@ -43,9 +44,16 @@ namespace Areas
         /// Вычисление площади круга
         /// </summary>
         /// <returns>площаь круга</returns>
-        public double Area()
+        public double Area
         {
-            return 2 * Math.PI * R;
+            get { return 2 * Math.PI * R; }
+        }
+        /// <summary>
+        /// Возвращение типа фигуры
+        /// </summary>
+        public string Type
+        {
+            get { return "Круг"; }
         }
     }
 }

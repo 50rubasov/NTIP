@@ -7,36 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-  
+using Areas;
 namespace ViewAreas
 {
     public partial class CreateFigure : Form
     {
         private BindingSource _figureBindingSource;
-        public CreateFigure()
+
+        public CreateFigure(BindingSource figureBindingSource)
         {
             InitializeComponent();
+            _figureBindingSource = figureBindingSource;
+            MakeElementsInvisible();
         }
 
-        private void ClearTextBoxes()
+        private void MakeElementsInvisible()
         {
-            maskedTextBox1.Clear();
-            maskedTextBox2.Clear();
-            maskedTextBox3.Clear();
-            maskedTextBox4.Clear();
-        }
+            numericUpDownA.Visible = false;
+            numericUpDownB.Visible = false;
+            numericUpDownH.Visible = false;
+            numericUpDownR.Visible = false;
 
-        private void FalseTextBoxes()
-        {
-            maskedTextBox1.Visible = false;
-            maskedTextBox2.Visible = false;
-            maskedTextBox3.Visible = false;
-            maskedTextBox4.Visible = false;
-
-            label1.Visible = false;
-            label2.Visible = false;
-            label3.Visible = false;
-            label4.Visible = false;
+            labelA.Visible = false;
+            labelB.Visible = false;
+            labelH.Visible = false;
+            labelR.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -48,7 +43,20 @@ namespace ViewAreas
 
             if (result == DialogResult.Yes)
             {
-                _figureBindingSource.Add()
+                IFigure figure;
+                if (comboBox1.SelectedIndex == 0)
+                {
+                    figure = new Triangle(Convert.ToDouble(numericUpDownA.Text), Convert.ToDouble(numericUpDownH.Text));
+                }
+                else if (comboBox1.SelectedIndex == 1)
+                {
+                    figure = new Areas.Rectangle(Convert.ToDouble(numericUpDownA.Text), Convert.ToDouble(numericUpDownB.Text));
+                }
+                else
+                {
+                    figure = new Circle(Convert.ToDouble(numericUpDownR.Text));
+                }
+                _figureBindingSource.Add(figure);
             }
         }
         /// <summary>
@@ -59,35 +67,63 @@ namespace ViewAreas
         /// <param name="e">Аргументы события</param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ClearTextBoxes();
-            FalseTextBoxes();
-
-            if (comboBox1.SelectedItem == "Triangle")
+            MakeElementsInvisible();
+            button1.Visible = true;
+            button2.Visible = true;
+#if DEBUG
+            button3.Visible = true;
+#endif
+            if (comboBox1.SelectedIndex == 0)
             {
-                maskedTextBox1.Visible = true;
-                maskedTextBox3.Visible = true;
-                label1.Visible = true;
-                label3.Visible = true;
+                numericUpDownA.Visible = true;
+                numericUpDownH.Visible = true;
+                labelA.Visible = true;
+                labelH.Visible = true;
             }
-            if (comboBox1.SelectedItem == "Circle")
+            if (comboBox1.SelectedIndex == 2)
             {
-                maskedTextBox4.Visible = true;
-                label4.Visible = true;
+                numericUpDownR.Visible = true;
+                labelR.Visible = true;
             }
-            if (comboBox1.SelectedItem == "Rectangle")
+            if (comboBox1.SelectedIndex == 1)
             {
-                maskedTextBox1.Visible = true;
-                maskedTextBox2.Visible = true;
-                label1.Visible = true;
-                label2.Visible = true;
+                numericUpDownA.Visible = true;
+                numericUpDownB.Visible = true;
+                labelA.Visible = true;
+                labelB.Visible = true;
             }
         }
-
+        /// <summary>
+        /// Метод вызываемый при закрытии
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             Hide();
-            ClearTextBoxes();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+#if DEBUG
+            Random random = new Random();
+            decimal randomValue = random.Next(100);
+            if (comboBox1.SelectedIndex == 0)
+            {
+                numericUpDownA.Value = randomValue;
+                numericUpDownH.Value = randomValue;
+            }
+            else if (comboBox1.SelectedIndex == 1)
+            {
+                numericUpDownA.Value = randomValue;
+                numericUpDownB.Value = randomValue;
+            }
+            else
+            {
+                numericUpDownR.Value = randomValue;
+            }
+#endif
         }
     }
-    
+
 }
