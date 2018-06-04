@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Areas
 {
-    [Serializable]
+    [DataContract]
     /// <summary>
     /// 
     /// </summary>
@@ -15,11 +16,13 @@ namespace Areas
         /// <summary>
         /// Сторона А
         /// </summary>
+        [DataMember]
         private double _a;
 
         /// <summary>
         /// Сторона B
         /// </summary>
+        [DataMember]
         private double _b;
 
         /// <summary>

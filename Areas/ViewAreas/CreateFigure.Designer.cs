@@ -28,54 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.AddFigureButton = new System.Windows.Forms.Button();
+            this.SelectFigureBox = new System.Windows.Forms.ComboBox();
             this.labelA = new System.Windows.Forms.Label();
             this.labelB = new System.Windows.Forms.Label();
             this.labelH = new System.Windows.Forms.Label();
             this.labelR = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.CloseButton = new System.Windows.Forms.Button();
             this.numericUpDownA = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownB = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownR = new System.Windows.Forms.NumericUpDown();
             this.numericUpDownH = new System.Windows.Forms.NumericUpDown();
-            this.button3 = new System.Windows.Forms.Button();
+            this.RandomValueButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownR)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownH)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // AddFigureButton
             // 
-            this.button1.Location = new System.Drawing.Point(10, 110);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Добавить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.AddFigureButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddFigureButton.Location = new System.Drawing.Point(6, 112);
+            this.AddFigureButton.Name = "AddFigureButton";
+            this.AddFigureButton.Size = new System.Drawing.Size(87, 23);
+            this.AddFigureButton.TabIndex = 0;
+            this.AddFigureButton.Text = "Добавить";
+            this.AddFigureButton.UseVisualStyleBackColor = true;
+            this.AddFigureButton.Visible = false;
+            this.AddFigureButton.Click += new System.EventHandler(this.AddFigureButton_Click);
             // 
-            // comboBox1
+            // SelectFigureBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.SelectFigureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SelectFigureBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SelectFigureBox.FormattingEnabled = true;
+            this.SelectFigureBox.Items.AddRange(new object[] {
             "Triangle",
             "Rectangle",
             "Circle"});
-            this.comboBox1.Location = new System.Drawing.Point(10, 25);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 24);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.SelectFigureBox.Location = new System.Drawing.Point(6, 29);
+            this.SelectFigureBox.Name = "SelectFigureBox";
+            this.SelectFigureBox.Size = new System.Drawing.Size(189, 24);
+            this.SelectFigureBox.TabIndex = 1;
+            this.SelectFigureBox.SelectedIndexChanged += new System.EventHandler(this.SelectFigureBox_SelectedIndexChanged);
+            this.SelectFigureBox.VisibleChanged += new System.EventHandler(this.SelectFigureBox_VisibleChanged);
             // 
             // labelA
             // 
+            this.labelA.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelA.AutoSize = true;
-            this.labelA.Location = new System.Drawing.Point(9, 58);
+            this.labelA.Location = new System.Drawing.Point(6, 56);
             this.labelA.Name = "labelA";
             this.labelA.Size = new System.Drawing.Size(17, 17);
             this.labelA.TabIndex = 6;
@@ -84,8 +92,11 @@
             // 
             // labelB
             // 
+            this.labelB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelB.AutoSize = true;
-            this.labelB.Location = new System.Drawing.Point(8, 86);
+            this.labelB.Location = new System.Drawing.Point(6, 84);
             this.labelB.Name = "labelB";
             this.labelB.Size = new System.Drawing.Size(17, 17);
             this.labelB.TabIndex = 7;
@@ -94,8 +105,11 @@
             // 
             // labelH
             // 
+            this.labelH.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelH.AutoSize = true;
-            this.labelH.Location = new System.Drawing.Point(9, 83);
+            this.labelH.Location = new System.Drawing.Point(6, 84);
             this.labelH.Name = "labelH";
             this.labelH.Size = new System.Drawing.Size(18, 17);
             this.labelH.TabIndex = 8;
@@ -104,120 +118,146 @@
             // 
             // labelR
             // 
+            this.labelR.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelR.AutoSize = true;
-            this.labelR.Location = new System.Drawing.Point(10, 55);
+            this.labelR.Location = new System.Drawing.Point(6, 56);
             this.labelR.Name = "labelR";
             this.labelR.Size = new System.Drawing.Size(18, 17);
             this.labelR.TabIndex = 9;
             this.labelR.Text = "R";
             this.labelR.Visible = false;
             // 
-            // label5
+            // CloseButton
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 17);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Выберите фигуру";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(104, 110);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Закрыть";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CloseButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.CloseButton.Location = new System.Drawing.Point(99, 112);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(93, 23);
+            this.CloseButton.TabIndex = 15;
+            this.CloseButton.Text = "Закрыть";
+            this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Visible = false;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // numericUpDownA
             // 
+            this.numericUpDownA.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownA.DecimalPlaces = 2;
-            this.numericUpDownA.Location = new System.Drawing.Point(34, 53);
+            this.numericUpDownA.Location = new System.Drawing.Point(29, 56);
             this.numericUpDownA.Name = "numericUpDownA";
-            this.numericUpDownA.Size = new System.Drawing.Size(54, 22);
+            this.numericUpDownA.Size = new System.Drawing.Size(53, 22);
             this.numericUpDownA.TabIndex = 16;
             // 
             // numericUpDownB
             // 
+            this.numericUpDownB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownB.DecimalPlaces = 2;
-            this.numericUpDownB.Location = new System.Drawing.Point(34, 80);
+            this.numericUpDownB.Location = new System.Drawing.Point(29, 84);
             this.numericUpDownB.Name = "numericUpDownB";
-            this.numericUpDownB.Size = new System.Drawing.Size(54, 22);
+            this.numericUpDownB.Size = new System.Drawing.Size(53, 22);
             this.numericUpDownB.TabIndex = 17;
             // 
             // numericUpDownR
             // 
+            this.numericUpDownR.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownR.DecimalPlaces = 2;
-            this.numericUpDownR.Location = new System.Drawing.Point(34, 53);
+            this.numericUpDownR.Location = new System.Drawing.Point(29, 56);
             this.numericUpDownR.Name = "numericUpDownR";
-            this.numericUpDownR.Size = new System.Drawing.Size(54, 22);
+            this.numericUpDownR.Size = new System.Drawing.Size(53, 22);
             this.numericUpDownR.TabIndex = 18;
             // 
             // numericUpDownH
             // 
+            this.numericUpDownH.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownH.DecimalPlaces = 2;
-            this.numericUpDownH.Location = new System.Drawing.Point(34, 80);
+            this.numericUpDownH.Location = new System.Drawing.Point(29, 84);
             this.numericUpDownH.Name = "numericUpDownH";
-            this.numericUpDownH.Size = new System.Drawing.Size(54, 22);
+            this.numericUpDownH.Size = new System.Drawing.Size(53, 22);
             this.numericUpDownH.TabIndex = 19;
             // 
-            // button3
+            // RandomValueButton
             // 
-            this.button3.Location = new System.Drawing.Point(13, 140);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(157, 23);
-            this.button3.TabIndex = 20;
-            this.button3.Text = "Случайные значения";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.RandomValueButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.RandomValueButton.Location = new System.Drawing.Point(6, 141);
+            this.RandomValueButton.Name = "RandomValueButton";
+            this.RandomValueButton.Size = new System.Drawing.Size(186, 26);
+            this.RandomValueButton.TabIndex = 20;
+            this.RandomValueButton.Text = "Случайные значения";
+            this.RandomValueButton.UseVisualStyleBackColor = true;
+            this.RandomValueButton.Visible = false;
+            this.RandomValueButton.Click += new System.EventHandler(this.RandomValueButton_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.SelectFigureBox);
+            this.groupBox1.Controls.Add(this.RandomValueButton);
+            this.groupBox1.Controls.Add(this.numericUpDownR);
+            this.groupBox1.Controls.Add(this.numericUpDownH);
+            this.groupBox1.Controls.Add(this.AddFigureButton);
+            this.groupBox1.Controls.Add(this.labelA);
+            this.groupBox1.Controls.Add(this.numericUpDownB);
+            this.groupBox1.Controls.Add(this.labelB);
+            this.groupBox1.Controls.Add(this.numericUpDownA);
+            this.groupBox1.Controls.Add(this.labelH);
+            this.groupBox1.Controls.Add(this.CloseButton);
+            this.groupBox1.Controls.Add(this.labelR);
+            this.groupBox1.Location = new System.Drawing.Point(12, 10);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(203, 188);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Выберите фигуру";
             // 
             // CreateFigure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(182, 177);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.numericUpDownH);
-            this.Controls.Add(this.numericUpDownR);
-            this.Controls.Add(this.numericUpDownB);
-            this.Controls.Add(this.numericUpDownA);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.labelR);
-            this.Controls.Add(this.labelH);
-            this.Controls.Add(this.labelB);
-            this.Controls.Add(this.labelA);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(227, 222);
+            this.Controls.Add(this.groupBox1);
+            this.MinimumSize = new System.Drawing.Size(245, 269);
             this.Name = "CreateFigure";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GetAreaForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CreateFigure_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownR)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownH)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button AddFigureButton;
+        private System.Windows.Forms.ComboBox SelectFigureBox;
         private System.Windows.Forms.Label labelA;
         private System.Windows.Forms.Label labelB;
         private System.Windows.Forms.Label labelH;
         private System.Windows.Forms.Label labelR;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.NumericUpDown numericUpDownA;
         private System.Windows.Forms.NumericUpDown numericUpDownB;
         private System.Windows.Forms.NumericUpDown numericUpDownR;
         private System.Windows.Forms.NumericUpDown numericUpDownH;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button RandomValueButton;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

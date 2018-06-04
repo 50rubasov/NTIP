@@ -10,17 +10,22 @@ using System.Windows.Forms;
 using Areas;
 namespace ViewAreas
 {
+    /// <summary>
+    /// форма для добавления новой фигуры
+    /// </summary>
     public partial class CreateFigure : Form
     {
-        private BindingSource _figureBindingSource;
-
-        public CreateFigure(BindingSource figureBindingSource)
+        public CreateFigure()
         {
             InitializeComponent();
-            _figureBindingSource = figureBindingSource;
             MakeElementsInvisible();
         }
 
+        public IFigure figure { get; private set; }
+
+        /// <summary>
+        /// Метод скрывающий элементы формы
+        /// </summary>
         private void MakeElementsInvisible()
         {
             numericUpDownA.Visible = false;
@@ -32,9 +37,30 @@ namespace ViewAreas
             labelB.Visible = false;
             labelH.Visible = false;
             labelR.Visible = false;
-        }
 
-        private void button1_Click(object sender, EventArgs e)
+            AddFigureButton.Visible = false;
+            CloseButton.Visible = false;
+            RandomValueButton.Visible = false;
+        }
+        /// <summary>
+        /// Метод для отчистки элементов
+        /// </summary>
+        private void ClearElements()
+        {
+            numericUpDownA.Value = 0;
+            numericUpDownB.Value = 0;
+            numericUpDownH.Value = 0;
+            numericUpDownR.Value = 0;
+
+
+            Close();
+        }
+        /// <summary>
+        /// метод вызываемый для добавления одного из трех фигур
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddFigureButton_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Добавить?",
                 "Подтвердите",
@@ -43,12 +69,11 @@ namespace ViewAreas
 
             if (result == DialogResult.Yes)
             {
-                IFigure figure;
-                if (comboBox1.SelectedIndex == 0)
+                if (SelectFigureBox.SelectedIndex == 0)
                 {
                     figure = new Triangle(Convert.ToDouble(numericUpDownA.Text), Convert.ToDouble(numericUpDownH.Text));
                 }
-                else if (comboBox1.SelectedIndex == 1)
+                else if (SelectFigureBox.SelectedIndex == 1)
                 {
                     figure = new Areas.Rectangle(Convert.ToDouble(numericUpDownA.Text), Convert.ToDouble(numericUpDownB.Text));
                 }
@@ -56,8 +81,8 @@ namespace ViewAreas
                 {
                     figure = new Circle(Convert.ToDouble(numericUpDownR.Text));
                 }
-                _figureBindingSource.Add(figure);
             }
+                ClearElements();
         }
         /// <summary>
         /// Обработчик события на изменение данных
@@ -65,27 +90,27 @@ namespace ViewAreas
         /// </summary>
         /// <param name="sender">Отправитель события</param>
         /// <param name="e">Аргументы события</param>
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void SelectFigureBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             MakeElementsInvisible();
-            button1.Visible = true;
-            button2.Visible = true;
+            AddFigureButton.Visible = true;
+            CloseButton.Visible = true;
 #if DEBUG
-            button3.Visible = true;
+            RandomValueButton.Visible = true;
 #endif
-            if (comboBox1.SelectedIndex == 0)
+            if (SelectFigureBox.SelectedIndex == 0)
             {
                 numericUpDownA.Visible = true;
                 numericUpDownH.Visible = true;
                 labelA.Visible = true;
                 labelH.Visible = true;
             }
-            if (comboBox1.SelectedIndex == 2)
+            if (SelectFigureBox.SelectedIndex == 2)
             {
                 numericUpDownR.Visible = true;
                 labelR.Visible = true;
             }
-            if (comboBox1.SelectedIndex == 1)
+            if (SelectFigureBox.SelectedIndex == 1)
             {
                 numericUpDownA.Visible = true;
                 numericUpDownB.Visible = true;
@@ -98,31 +123,59 @@ namespace ViewAreas
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button2_Click(object sender, EventArgs e)
+        private void CloseButton_Click(object sender, EventArgs e)
         {
-            Hide();
+            MakeElementsInvisible();
+            ClearElements();
+            SelectFigureBox.SelectedIndex = -1;
         }
-
-        private void button3_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Метод вызываемый для генерации случайных значений
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RandomValueButton_Click(object sender, EventArgs e)
         {
 #if DEBUG
             Random random = new Random();
-            decimal randomValue = random.Next(100);
-            if (comboBox1.SelectedIndex == 0)
+            if (SelectFigureBox.SelectedIndex == 0)
             {
-                numericUpDownA.Value = randomValue;
-                numericUpDownH.Value = randomValue;
+                numericUpDownA.Value = random.Next(100);
+                numericUpDownH.Value = random.Next(100);
             }
-            else if (comboBox1.SelectedIndex == 1)
+            else if (SelectFigureBox.SelectedIndex == 1)
             {
-                numericUpDownA.Value = randomValue;
-                numericUpDownB.Value = randomValue;
+                numericUpDownA.Value = random.Next(100);
+                numericUpDownB.Value = random.Next(100);
             }
             else
             {
-                numericUpDownR.Value = randomValue;
+                numericUpDownR.Value = random.Next(100);
             }
 #endif
+        }
+        /// <summary>
+        /// Метод вызываемый для отчистки формы при закрытии на крестик
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CreateFigure_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MakeElementsInvisible();
+            ClearElements();
+            SelectFigureBox.SelectedIndex = -1;
+            AddFigureButton.Visible = false;
+            CloseButton.Visible = false;
+            RandomValueButton.Visible = false;
+        }
+        /// <summary>
+        /// Метод вызываемый для удаления объекта при исчезновении формы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SelectFigureBox_VisibleChanged(object sender, EventArgs e)
+        {
+            figure = null;
         }
     }
 

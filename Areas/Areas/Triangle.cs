@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Areas
 {
-    [Serializable]
+    [DataContract]
     /// <summary>
     /// Плозадь треугольника
     /// </summary>
@@ -15,10 +16,12 @@ namespace Areas
         /// <summary>
         /// сторона А
         /// </summary>
+        [DataMember]
         private double _a;
         /// <summary>
         /// высота
         /// </summary>
+        [DataMember]
         private double _h;
   
         /// <summary>
