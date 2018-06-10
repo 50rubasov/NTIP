@@ -15,6 +15,7 @@ namespace Areas
         /// Метод позволяет рассчитать площадь фигуры
         /// </summary>
         /// <returns> возвращает площадь фигуры </returns>
-        double Area();
+        double Area { get; }
+        string Type { get; }
     }
 }

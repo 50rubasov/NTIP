@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Areas
 {
+    [DataContract]
     /// <summary>
     /// 
     /// </summary>
@@ -14,11 +16,13 @@ namespace Areas
         /// <summary>
         /// Сторона А
         /// </summary>
+        [DataMember]
         private double _a;
 
         /// <summary>
         /// Сторона B
         /// </summary>
+        [DataMember]
         private double _b;
 
         /// <summary>
@@ -65,9 +69,16 @@ namespace Areas
         /// Вычисление площади прямоугольника
         /// </summary>
         /// <returns>площадь прямоугольника</returns>
-        public double Area()
+        public double Area
         {
-            return A * B;
+            get { return A * B; } 
+        }
+        /// <summary>
+        /// Возвращение типа фигуры
+        /// </summary>
+        public string Type
+        {
+            get { return "Прямоугольник"; }
         }
     }
 }

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Areas
 {
+    [DataContract]
     /// <summary>
     /// Площадь круга
     /// </summary>
@@ -14,6 +16,7 @@ namespace Areas
         /// <summary>
         /// Радиус
         /// </summary>
+        [DataMember]
         private double _r;
 
         /// <summary>
@@ -43,9 +46,16 @@ namespace Areas
         /// Вычисление площади круга
         /// </summary>
         /// <returns>площаь круга</returns>
-        public double Area()
+        public double Area
         {
-            return 2 * Math.PI * R;
+            get { return 2 * Math.PI * R; }
+        }
+        /// <summary>
+        /// Возвращение типа фигуры
+        /// </summary>
+        public string Type
+        {
+            get { return "Круг"; }
         }
     }
 }
