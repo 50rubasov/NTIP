@@ -40,30 +40,32 @@ namespace Areas
         /// </summary>
         public double A
         {
-            get
+            get { return _a; }
+
+            set
             {
-                if (_a < 0)
+                if (value <= 0 || value > 1000000000.0)
                 {
-                    throw new Exception("Сторона должна быть больше нуля");
+                    throw new Exception("Сторона должна быть больше нуля и меньше 1000000000");
                 }
-                else return _a;
+                _a = value;
             }
-            set { _a = value; }
         }
         /// <summary>
         /// Устанавливает или возвращает сторону B
         /// </summary>
         public double B
         {
-            get
+            get { return _b; }
+
+            set
             {
-                if (_b < 0)
+                if (value <= 0 || value > 1000000000.0)
                 {
-                    throw new Exception("Сторона должна быть больше нуля");
+                    throw new Exception("Сторона должна быть больше нуля и меньше 1000000000");
                 }
-                else return _a;
+                _b = value;
             }
-            set { _b = value; }
         }
         /// <summary>
         /// Вычисление площади прямоугольника

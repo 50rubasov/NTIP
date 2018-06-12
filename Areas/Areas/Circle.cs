@@ -32,15 +32,16 @@ namespace Areas
         /// </summary>
         public double R
         {
-            get
+            get { return _r; }
+
+            set
             {
-                if (_r < 0)
+                if (value <= 0 || value > 1000000000.0)
                 {
-                    throw new Exception("Радиус должен быть больше нуля");
+                    throw new Exception("Основание должно быть больше нуля и меньше 1000000000.0");
                 }
-                else return _r;
+                _r = value;
             }
-            set { _r = value; }
         }
         /// <summary>
         /// Вычисление площади круга

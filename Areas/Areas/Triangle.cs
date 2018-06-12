@@ -39,31 +39,32 @@ namespace Areas
         /// </summary>
         public double A
         {
-            get
+            get { return _a; }
+
+            set
             {
-                if (_a < 0)
+                if (value <= 0 || value > 1000000000.0)
                 {
-                    throw new Exception("Основание должно быть больше нуля");
+                    throw new Exception("Сторона должна быть больше нуля и меньше 1000000000");
                 }
-                else return _a;
+                _a = value;
             }
-            set { _a = value; }
         }
         /// <summary>
         /// Установить или возвратить высоту
         /// </summary>
         public double H
         {
-            get
-            {
-                if (_h < 0)
-                {
-                    throw new Exception("Высота должна быть больше нуля");
-                }
-                else return _h;
-            }
+            get { return _h; }
 
-            set { _h = value; }
+            set
+            {
+                if (value <= 0 || value > 1000000000.0)
+                {
+                    throw new Exception("Основание должно быть больше нуля и меньше 1000000000");
+                }
+                _h = value;
+            }
 
         }
         /// <summary>
