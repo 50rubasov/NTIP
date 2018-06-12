@@ -28,16 +28,17 @@ namespace ViewAreas
         /// </summary>
         private void MakeElementsInvisible()
         {
-            numericUpDownA.Visible = false;
-            numericUpDownB.Visible = false;
-            numericUpDownH.Visible = false;
+           // numericUpDownA.Visible = false;
+           // numericUpDownB.Visible = false;
+           // numericUpDownH.Visible = false;
             numericUpDownR.Visible = false;
 
-            labelA.Visible = false;
-            labelB.Visible = false;
-            labelH.Visible = false;
+           // labelA.Visible = false;
+           // labelB.Visible = false;
+           // labelH.Visible = false;
             labelR.Visible = false;
 
+            triangleControl1.Visible = false;
             AddFigureButton.Visible = false;
             CloseButton.Visible = false;
             RandomValueButton.Visible = false;
@@ -47,10 +48,10 @@ namespace ViewAreas
         /// </summary>
         private void ClearElements()
         {
-            numericUpDownA.Value = 0;
-            numericUpDownB.Value = 0;
-            numericUpDownH.Value = 0;
-            numericUpDownR.Value = 0;
+            //numericUpDownA.Value = 0;
+            //numericUpDownB.Value = 0;
+            //numericUpDownH.Value = 0;
+            //numericUpDownR.Value = 0;
 
 
             Close();
@@ -71,16 +72,16 @@ namespace ViewAreas
             {
                 if (SelectFigureBox.SelectedIndex == 0)
                 {
-                    figure = new Triangle(Convert.ToDouble(numericUpDownA.Text), Convert.ToDouble(numericUpDownH.Text));
+                    figure = triangleControl1.triangle;
                 }
                 else if (SelectFigureBox.SelectedIndex == 1)
                 {
-                    figure = new Areas.Rectangle(Convert.ToDouble(numericUpDownA.Text), Convert.ToDouble(numericUpDownB.Text));
+                    figure = rectangleControl1.rectangle;
                 }
-                else
-                {
-                    figure = new Circle(Convert.ToDouble(numericUpDownR.Text));
-                }
+                //else
+                //{
+                //    figure = new Circle(Convert.ToDouble(numericUpDownR.Text));
+                //}
             }
                 ClearElements();
         }
@@ -100,23 +101,20 @@ namespace ViewAreas
 #endif
             if (SelectFigureBox.SelectedIndex == 0)
             {
-                numericUpDownA.Visible = true;
-                numericUpDownH.Visible = true;
-                labelA.Visible = true;
-                labelH.Visible = true;
+                triangleControl1.Visible = true;
             }
             if (SelectFigureBox.SelectedIndex == 2)
             {
                 numericUpDownR.Visible = true;
                 labelR.Visible = true;
             }
-            if (SelectFigureBox.SelectedIndex == 1)
-            {
-                numericUpDownA.Visible = true;
-                numericUpDownB.Visible = true;
-                labelA.Visible = true;
-                labelB.Visible = true;
-            }
+            //if (SelectFigureBox.SelectedIndex == 1)
+            //{
+            //    numericUpDownA.Visible = true;
+            //    numericUpDownB.Visible = true;
+            //    labelA.Visible = true;
+            //    labelB.Visible = true;
+            //}
         }
         /// <summary>
         /// Метод вызываемый при закрытии
@@ -140,13 +138,13 @@ namespace ViewAreas
             Random random = new Random();
             if (SelectFigureBox.SelectedIndex == 0)
             {
-                numericUpDownA.Value = random.Next(100);
-                numericUpDownH.Value = random.Next(100);
+                //numericUpDownA.Value = random.Next(100);
+                //numericUpDownH.Value = random.Next(100);
             }
             else if (SelectFigureBox.SelectedIndex == 1)
             {
-                numericUpDownA.Value = random.Next(100);
-                numericUpDownB.Value = random.Next(100);
+                //numericUpDownA.Value = random.Next(100);
+              //  numericUpDownB.Value = random.Next(100);
             }
             else
             {

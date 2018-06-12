@@ -60,6 +60,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RectangleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RectangleControl.Designer.cs">
+      <DependentUpon>RectangleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TriangleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TriangleControl.Designer.cs">
+      <DependentUpon>TriangleControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CreateFigure.resx">
       <DependentUpon>CreateFigure.cs</DependentUpon>
     </EmbeddedResource>
@@ -75,6 +87,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RectangleControl.resx">
+      <DependentUpon>RectangleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TriangleControl.resx">
+      <DependentUpon>TriangleControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\DataSources\Areas.Circle.datasource" />
     <None Include="Properties\DataSources\Areas.Rectangle.datasource" />
     <None Include="Properties\DataSources\Areas.Triangle.datasource" />
