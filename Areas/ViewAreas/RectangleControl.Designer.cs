@@ -42,9 +42,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownB.DecimalPlaces = 2;
-            this.numericUpDownB.Location = new System.Drawing.Point(28, 31);
+            this.numericUpDownB.Location = new System.Drawing.Point(26, 31);
+            this.numericUpDownB.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             this.numericUpDownB.Name = "numericUpDownB";
-            this.numericUpDownB.Size = new System.Drawing.Size(84, 22);
+            this.numericUpDownB.Size = new System.Drawing.Size(70, 22);
             this.numericUpDownB.TabIndex = 19;
             this.numericUpDownB.Value = new decimal(new int[] {
             1,
@@ -58,7 +63,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelB.AutoSize = true;
-            this.labelB.Location = new System.Drawing.Point(6, 33);
+            this.labelB.Location = new System.Drawing.Point(3, 31);
             this.labelB.Name = "labelB";
             this.labelB.Size = new System.Drawing.Size(17, 17);
             this.labelB.TabIndex = 18;
@@ -70,7 +75,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelA.AutoSize = true;
-            this.labelA.Location = new System.Drawing.Point(5, 3);
+            this.labelA.Location = new System.Drawing.Point(3, 3);
             this.labelA.Name = "labelA";
             this.labelA.Size = new System.Drawing.Size(17, 17);
             this.labelA.TabIndex = 25;
@@ -82,9 +87,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownA.DecimalPlaces = 2;
-            this.numericUpDownA.Location = new System.Drawing.Point(28, 3);
+            this.numericUpDownA.Location = new System.Drawing.Point(26, 3);
+            this.numericUpDownA.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             this.numericUpDownA.Name = "numericUpDownA";
-            this.numericUpDownA.Size = new System.Drawing.Size(84, 22);
+            this.numericUpDownA.Size = new System.Drawing.Size(70, 22);
             this.numericUpDownA.TabIndex = 26;
             this.numericUpDownA.Value = new decimal(new int[] {
             1,
@@ -101,7 +111,7 @@
             this.Controls.Add(this.numericUpDownB);
             this.Controls.Add(this.labelB);
             this.Name = "RectangleControl";
-            this.Size = new System.Drawing.Size(128, 79);
+            this.Size = new System.Drawing.Size(99, 57);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownA)).EndInit();
             this.ResumeLayout(false);

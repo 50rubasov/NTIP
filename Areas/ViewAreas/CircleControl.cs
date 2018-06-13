@@ -9,28 +9,26 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Areas;
 
-
 namespace ViewAreas
 {
-    public partial class RectangleControl : UserControl
+    public partial class CircleControl : UserControl
     {
-        public RectangleControl()
+        private bool _readOnly;
+        public CircleControl()
         {
             InitializeComponent();
         }
-
-        public Areas.Rectangle rectangle
+        public Circle circle
         {
             get
             {
-                return new Areas.Rectangle(Convert.ToDouble(numericUpDownA.Text), Convert.ToDouble(numericUpDownB.Text));
+                return new Circle(Convert.ToDouble(numericUpDownR.Text));
             }
 
             set
             {
                 if (value == null) return;
-                numericUpDownA.Text = Convert.ToString(value.A);
-                numericUpDownB.Text = Convert.ToString(value.B);
+                numericUpDownR.Text = Convert.ToString(value.R);
             }
         }
 
@@ -39,13 +37,10 @@ namespace ViewAreas
             get { return ReadOnly; }
             set
             {
-                numericUpDownA.ReadOnly = value;
-                numericUpDownB.ReadOnly = value;
-                
-                
+                numericUpDownR.ReadOnly = value;
+
             }
 
         }
-
     }
 }

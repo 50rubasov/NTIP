@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Areas;
 using System.IO;
 using System.Runtime.Serialization.Json;
+using Rectangle = Areas.Rectangle;
 
 namespace ViewAreas
 {
@@ -48,6 +49,8 @@ namespace ViewAreas
             knownTypeList.Add(typeof(Areas.Rectangle));
             knownTypeList.Add(typeof(Circle));
             _serializer = new DataContractJsonSerializer(typeof(List<IFigure>), knownTypeList);
+
+            DisableControls();
         }
         
         /// <summary>
@@ -57,8 +60,12 @@ namespace ViewAreas
         /// <param name="e"></param>
         private void AddObject_Click(object sender, EventArgs e)
         {
-            
+            CreateFigure _createFigure = new CreateFigure()
+            {
+                ReadOnly = false
+            };
             _createFigure.ShowDialog();
+            if(_createFigure.DialogResult != DialogResult.OK) return;
             if (_createFigure.figure != null)
             {
                 figureBindingSource.Add(_createFigure.figure);
@@ -230,5 +237,64 @@ namespace ViewAreas
             }
         }
 
+        private void DisableControls()
+        {
+            triangleControl1.Visible = false;
+            circleControl1.Visible = false;
+            rectangleControl1.Visible = false;
+        }
+
+        private void ModifyObject_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.RowCount > 0)
+            {
+                CreateFigure modifyFigureForm = new CreateFigure()
+                {
+                    figure = _figures[dataGridView1.CurrentRow.Index],
+                    ReadOnly = false
+                };
+
+                modifyFigureForm.ShowDialog();
+
+                if (modifyFigureForm.DialogResult != DialogResult.OK) return;
+                if (modifyFigureForm.figure != null)
+                {
+                    _figures[dataGridView1.CurrentRow.Index] = modifyFigureForm.figure;
+                    figureBindingSource.ResetCurrentItem();
+                }
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var figure = _figures[dataGridView1.CurrentRow.Index];
+            if (figure is Triangle triangle)
+            {
+                triangleControl1.Visible = true;
+                rectangleControl1.Visible = false;
+                circleControl1.Visible = false;
+                triangleControl1.ReadOnly = true;
+                triangleControl1.triangle = triangle;
+            }
+            else if (figure is Rectangle rectangle)
+            {
+                rectangleControl1.Visible = true;
+                triangleControl1.Visible = false;
+                circleControl1.Visible = false;
+                rectangleControl1.ReadOnly = true;
+                rectangleControl1.rectangle = rectangle;
+            }
+            else if (figure is Circle circle)
+            {
+                circleControl1.Visible = true;
+                triangleControl1.Visible = false;
+                rectangleControl1.Visible = false;
+                circleControl1.ReadOnly = true;
+
+                circleControl1.circle = circle;
+            }
+
+        }
     }
+    
 }

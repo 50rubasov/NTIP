@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CircleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CircleControl.Designer.cs">
+      <DependentUpon>CircleControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateFigure.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     <Compile Include="TriangleControl.Designer.cs">
       <DependentUpon>TriangleControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CircleControl.resx">
+      <DependentUpon>CircleControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateFigure.resx">
       <DependentUpon>CreateFigure.cs</DependentUpon>
     </EmbeddedResource>

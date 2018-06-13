@@ -13,10 +13,6 @@ namespace ViewAreas
 {
     public partial class TriangleControl : UserControl
     {
-        private double _a;
-        private double _h;
-        private bool _readOnly;
-
         public TriangleControl()
         {
             InitializeComponent();
@@ -31,18 +27,22 @@ namespace ViewAreas
 
             set
             {
-                if (_readOnly)
-                {
-                    _a = value.A;
-                    _h = value.H;
-                }
+                if (value == null) return;
+                numericUpDownA.Text = Convert.ToString(value.A);
+                numericUpDownH.Text = Convert.ToString(value.H);
             }
         }
 
         public bool ReadOnly
         {
-            get { return _readOnly; }
-            set { _readOnly = value; }
+            get { return ReadOnly; }
+            set
+            {
+                numericUpDownA.ReadOnly = value;
+                numericUpDownH.ReadOnly = value;
+
+            }
+
         }
 
     }

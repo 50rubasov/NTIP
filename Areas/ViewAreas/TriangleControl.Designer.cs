@@ -42,9 +42,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownH.DecimalPlaces = 2;
-            this.numericUpDownH.Location = new System.Drawing.Point(30, 31);
+            this.numericUpDownH.Location = new System.Drawing.Point(26, 31);
+            this.numericUpDownH.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             this.numericUpDownH.Name = "numericUpDownH";
-            this.numericUpDownH.Size = new System.Drawing.Size(52, 22);
+            this.numericUpDownH.Size = new System.Drawing.Size(70, 22);
             this.numericUpDownH.TabIndex = 27;
             this.numericUpDownH.Value = new decimal(new int[] {
             1,
@@ -58,7 +63,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelA.AutoSize = true;
-            this.labelA.Location = new System.Drawing.Point(7, 3);
+            this.labelA.Location = new System.Drawing.Point(3, 3);
             this.labelA.Name = "labelA";
             this.labelA.Size = new System.Drawing.Size(17, 17);
             this.labelA.TabIndex = 20;
@@ -70,9 +75,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownA.DecimalPlaces = 2;
-            this.numericUpDownA.Location = new System.Drawing.Point(30, 3);
+            this.numericUpDownA.Location = new System.Drawing.Point(26, 3);
+            this.numericUpDownA.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
             this.numericUpDownA.Name = "numericUpDownA";
-            this.numericUpDownA.Size = new System.Drawing.Size(52, 22);
+            this.numericUpDownA.Size = new System.Drawing.Size(70, 22);
             this.numericUpDownA.TabIndex = 24;
             this.numericUpDownA.Value = new decimal(new int[] {
             1,
@@ -86,7 +96,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelH.AutoSize = true;
-            this.labelH.Location = new System.Drawing.Point(6, 31);
+            this.labelH.Location = new System.Drawing.Point(3, 31);
             this.labelH.Name = "labelH";
             this.labelH.Size = new System.Drawing.Size(18, 17);
             this.labelH.TabIndex = 22;
@@ -101,7 +111,7 @@
             this.Controls.Add(this.numericUpDownA);
             this.Controls.Add(this.labelH);
             this.Name = "TriangleControl";
-            this.Size = new System.Drawing.Size(164, 78);
+            this.Size = new System.Drawing.Size(99, 57);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownA)).EndInit();
             this.ResumeLayout(false);
