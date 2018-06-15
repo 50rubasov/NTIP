@@ -60,9 +60,9 @@ namespace ViewAreas
         /// <param name="e"></param>
         private void AddObject_Click(object sender, EventArgs e)
         {
-            CreateFigure _createFigure = new CreateFigure()
+            CreateFigure _createFigure = new CreateFigure();
             {
-                ReadOnly = false
+                ReadOnly = false;
             };
             _createFigure.ShowDialog();
             if(_createFigure.DialogResult != DialogResult.OK) return;
@@ -297,4 +297,3 @@ namespace ViewAreas
         }
     }
     
-}
